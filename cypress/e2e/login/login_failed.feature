@@ -3,11 +3,11 @@ Feature: failed login to saucedemo.com
         Given Open the website
         When Verify login page website
         Then Login page appears
-        When Input username with valid user name "invalid_username"
-        Then Username field filled "invalid_username"
-        When Input password with valid password "secret_sauce"
+        When Input username with invalid user name "invalidUser"
+        Then Username field filled
+        When Input password with valid password
         Then Password field filled
         When Click login button
-        Then Error message appears "Epic sadface: Username and password do not match any user in this service"
+        Then Error message appears "invalidCredential"
         When Click button close error message
         Then Verify login page website
