@@ -8,6 +8,6 @@ Feature: failed login to saucedemo.com
         When Input password with valid password
         Then Password field filled
         When Click login button
-        Then Error message appears "invalidCredential"
+        Then Error message appears
         When Click button close error message
         Then Verify login page website

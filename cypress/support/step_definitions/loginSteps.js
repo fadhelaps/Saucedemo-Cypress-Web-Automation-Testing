@@ -1,5 +1,6 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import { LoginPage } from "../../page_object/loginPage";
+import { getLoginData } from "../../helper/dataHelper";
 
 const loginPage = new LoginPage;
 let loginData;
@@ -17,15 +18,16 @@ Then('Login page appears', () => {
 })
 
 When('Input username with valid user name {string}', (userType) => {
-    cy.fixture('loginData').then((data) => {
-        loginData = data[userType];
+    getLoginData(userType).then((data) => {
+        loginData = data;
         loginPage.inputUsername(loginData.userName);
     })
+
 })
 
 When('Input username with invalid user name {string}', (userType) => {
-    cy.fixture('loginData').then((data) => {
-        loginData = data[userType];
+    getLoginData(userType).then((data) => {
+        loginData = data;
         loginPage.inputUsername(loginData.userName);
     })
 })
@@ -50,11 +52,8 @@ Then('Home page website appears', () => {
     loginPage.verifyHomepage();
 })
 
-Then('Error message appears {string}', (errorType) => {
-    cy.fixture('loginData').then((data) => {
-        loginData = data[errorType];
-        loginPage.verifyErrorMessage(loginData.message);
-    })
+Then('Error message appears', () => {
+    loginPage.verifyErrorMessage(loginData.message);
 })
 
 When('Click button close error message', () => {

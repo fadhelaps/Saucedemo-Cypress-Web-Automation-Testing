@@ -17,7 +17,6 @@ export class LoginPage {
     };
 
     verifyUsernameFiled(userName){
-        cy.wait(1000);
         cy.get(loginLocators.username_field)
         .should('have.value', userName);
     }
