@@ -1,4 +1,4 @@
-Feature: login website saucedemo.com
+Feature: success login website saucedemo.com
     Scenario: Login with valid credentials
         Given Open the website
         When Verify login page website
@@ -9,4 +9,3 @@ Feature: login website saucedemo.com
         Then Password field filled
         When Click login button
         Then Home page website appears
-

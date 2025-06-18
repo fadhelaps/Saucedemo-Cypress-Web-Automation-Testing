@@ -41,5 +41,16 @@ export class LoginPage {
         cy.get(loginLocators.btn_shopping_cart);
     }
 
+    verifyErrorMessage(errorMessage){
+        cy.get(loginLocators.txt_error_message)
+        .should('have.text',  errorMessage);
+        cy.get(loginLocators.btn_close_error_message);
+    }
+
+    clickBtnCloseError(){
+        cy.get(loginLocators.btn_close_error_message)
+        .click();
+    }
+
 }
 

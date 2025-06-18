@@ -39,3 +39,11 @@ Then('Home page website appears', () => {
     loginPage.verifyHomepage();
 })
 
+Then('Error message appears {string}', (errorMessage) => {
+    loginPage.verifyErrorMessage(errorMessage);
+})
+
+When('Click button close error message', () => {
+    loginPage.clickBtnCloseError();
+})
+
